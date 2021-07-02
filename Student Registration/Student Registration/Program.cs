@@ -32,7 +32,6 @@ namespace Student_Registration
             Console.WriteLine("Your registration is complete.");
             Console.WriteLine("Your temporary password is: " + password);
 
-
         }
     }
 }
