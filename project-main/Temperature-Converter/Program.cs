@@ -24,7 +24,7 @@ namespace Temperature_Converter
                 double tempC;
                 tempC = (tempF - 32) * (5.0 / 9.0);
 
-                Console.WriteLine("Degrees in Celsius: " + tempC);
+                Console.WriteLine($"Degrees in Celsius: {tempC}");
 
                 Console.Write("\nContinue(y/n)?");
                 choice = Console.ReadLine();
