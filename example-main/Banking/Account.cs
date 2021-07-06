@@ -16,7 +16,7 @@ namespace Banking
             Balance += Amount;
         }
 
-        public void Withdraw(decimal Amount)
+        public virtual void Withdraw(decimal Amount)    // 'Virtual' keyword - expected any class that inherits method will override this method.
         {
             if (Amount <= 0)
             {
