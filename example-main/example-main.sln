@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking", "Banking\Banking.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling", "Bowling\Bowling.csproj", "{D8027B98-702B-46E6-A5F0-44C10610C499}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCounter", "CharacterCounter\CharacterCounter.csproj", "{08FFA8AC-503C-4BE8-9812-8FAAC828EDF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvenOdd", "EvenOdd\EvenOdd.csproj", "{FF7BA351-3E48-4522-A2E7-ACE3FBB34C3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{D8027B98-702B-46E6-A5F0-44C10610C499}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8027B98-702B-46E6-A5F0-44C10610C499}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8027B98-702B-46E6-A5F0-44C10610C499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FFA8AC-503C-4BE8-9812-8FAAC828EDF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FFA8AC-503C-4BE8-9812-8FAAC828EDF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FFA8AC-503C-4BE8-9812-8FAAC828EDF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FFA8AC-503C-4BE8-9812-8FAAC828EDF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF7BA351-3E48-4522-A2E7-ACE3FBB34C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF7BA351-3E48-4522-A2E7-ACE3FBB34C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF7BA351-3E48-4522-A2E7-ACE3FBB34C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF7BA351-3E48-4522-A2E7-ACE3FBB34C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

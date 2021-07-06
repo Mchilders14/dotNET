@@ -6,7 +6,8 @@ namespace Bowling
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var game = new Bowling();
+            Console.WriteLine($"Game score is: {game.Bowl()}");
         }
     }
 }
