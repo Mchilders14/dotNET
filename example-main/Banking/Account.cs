@@ -3,9 +3,21 @@ namespace Banking
 {
     public class Account
     {
-        public int Id { get; set; }
+        private static int nextId = 1;
+        public int Id { get; protected set; }   // protected member is accessible within its class and by derived class instances.
         public string Description { get; set; } = "New Account";
         public decimal Balance { get; private set; } = 0;
+
+        public Account()
+        {
+            Id = nextId++;
+        }
+
+        public static void Transfer(decimal Amount, Account FromAccount, Account ToAccount)
+        {
+            FromAccount.Withdraw(Amount);
+            ToAccount.Deposit(Amount);
+        }
 
         public void Deposit(decimal Amount)
         {

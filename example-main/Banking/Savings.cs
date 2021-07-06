@@ -9,7 +9,7 @@ namespace Banking
 
         private Savings() { }   // *Required* MIN BALANCE so cannot use default constructor.
 
-        public Savings(decimal OpenAmountDeposit)
+        public Savings(decimal OpenAmountDeposit)   // New constructor with min balance requirement
         {
             if (OpenAmountDeposit < MinBalance)
             {
