@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Temperature-Converter", "Temperature-Converter\Temperature-Converter.csproj", "{FCC03EAC-0223-4BAF-BE79-A8014347070C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Student Registration", "Student Registration\Student Registration.csproj", "{5CCEA55C-992C-42CF-89D1-7AEFE36070A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Student-Registration", "Student Registration\Student-Registration.csproj", "{5CCEA55C-992C-42CF-89D1-7AEFE36070A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polygon-Calculator", "Polygon-Calculator\Polygon-Calculator.csproj", "{F42D7871-AD30-4466-9CD3-5A0FB2247A46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Change-App", "Change-App\Change-App.csproj", "{D5855ABF-4277-4E3B-9AA3-8E4AB50191EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{5CCEA55C-992C-42CF-89D1-7AEFE36070A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CCEA55C-992C-42CF-89D1-7AEFE36070A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CCEA55C-992C-42CF-89D1-7AEFE36070A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42D7871-AD30-4466-9CD3-5A0FB2247A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42D7871-AD30-4466-9CD3-5A0FB2247A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42D7871-AD30-4466-9CD3-5A0FB2247A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42D7871-AD30-4466-9CD3-5A0FB2247A46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5855ABF-4277-4E3B-9AA3-8E4AB50191EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5855ABF-4277-4E3B-9AA3-8E4AB50191EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5855ABF-4277-4E3B-9AA3-8E4AB50191EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5855ABF-4277-4E3B-9AA3-8E4AB50191EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
