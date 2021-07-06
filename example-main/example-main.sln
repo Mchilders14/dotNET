@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCounter", "Charact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvenOdd", "EvenOdd\EvenOdd.csproj", "{FF7BA351-3E48-4522-A2E7-ACE3FBB34C3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionsTutorial", "ExceptionsTutorial\ExceptionsTutorial.csproj", "{FCFA9A3F-FA9C-41DD-81C0-40DCB7CB919A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{FF7BA351-3E48-4522-A2E7-ACE3FBB34C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF7BA351-3E48-4522-A2E7-ACE3FBB34C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF7BA351-3E48-4522-A2E7-ACE3FBB34C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFA9A3F-FA9C-41DD-81C0-40DCB7CB919A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCFA9A3F-FA9C-41DD-81C0-40DCB7CB919A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCFA9A3F-FA9C-41DD-81C0-40DCB7CB919A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCFA9A3F-FA9C-41DD-81C0-40DCB7CB919A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
