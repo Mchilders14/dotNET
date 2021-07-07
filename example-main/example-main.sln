@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvenOdd", "EvenOdd\EvenOdd.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionsTutorial", "ExceptionsTutorial\ExceptionsTutorial.csproj", "{FCFA9A3F-FA9C-41DD-81C0-40DCB7CB919A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerLib", "SqlServerLib\SqlServerLib.csproj", "{478F6600-06A3-408F-8547-1003E6E3D9F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerLibrary", "SqlServerLibrary\SqlServerLibrary.csproj", "{CBF3CF69-201A-443D-A463-C499AD0648CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{FCFA9A3F-FA9C-41DD-81C0-40DCB7CB919A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFA9A3F-FA9C-41DD-81C0-40DCB7CB919A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFA9A3F-FA9C-41DD-81C0-40DCB7CB919A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{478F6600-06A3-408F-8547-1003E6E3D9F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{478F6600-06A3-408F-8547-1003E6E3D9F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{478F6600-06A3-408F-8547-1003E6E3D9F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{478F6600-06A3-408F-8547-1003E6E3D9F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF3CF69-201A-443D-A463-C499AD0648CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF3CF69-201A-443D-A463-C499AD0648CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF3CF69-201A-443D-A463-C499AD0648CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF3CF69-201A-443D-A463-C499AD0648CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
