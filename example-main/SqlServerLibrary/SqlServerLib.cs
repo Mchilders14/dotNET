@@ -8,6 +8,32 @@ namespace SqlServerLibrary
     {
         SqlConnection sqlConn = null;   // Setting initial sql connection to null
 
+        public bool UserCreate(User user)   // Adding user to the database
+        {
+            if (sqlConn == null)
+            {
+                throw new Exception("No connection!");
+            }
+
+            var sql = " INSERT INTO [User] " + " (Username, Password, FirstName, LastName, Phone, Email, Reviewer, Admin) "
+                                             + " VALUES "
+                                             + "(@Username, @Password, @FirstName, @LastName, @Phone, @Email, @Reviewer, @Admin)";
+
+            var sqlcmd = new SqlCommand(sql, sqlConn);
+            sqlcmd.Parameters.AddWithValue("@Username", user.Username);
+            sqlcmd.Parameters.AddWithValue("@Password", user.Password);
+            sqlcmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+            sqlcmd.Parameters.AddWithValue("@LastName", user.LastName);
+            sqlcmd.Parameters.AddWithValue("@Phone", user.Phone);
+            sqlcmd.Parameters.AddWithValue("@Email", user.Email);
+            sqlcmd.Parameters.AddWithValue("@Reviewer", user.Reviewer);
+            sqlcmd.Parameters.AddWithValue("@Admin", user.Admin);
+
+            var rowsAffected = sqlcmd.ExecuteNonQuery();
+
+            return rowsAffected == 1;
+        }
+
         public User UserGetByPK(int Id) // Perfroming get user by ID
         {
             if (sqlConn == null)
