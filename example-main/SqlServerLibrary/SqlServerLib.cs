@@ -8,33 +8,38 @@ namespace SqlServerLibrary
     {
         SqlConnection sqlConn = null;   // Setting initial sql connection to null
 
-        public bool UserCreate(User user)   // Adding user to the database
+        public List<User> UserGetAll()  // Get ALL User
         {
             if (sqlConn == null)
             {
-                throw new Exception("No connection!");
+                throw new Exception("No Connection");
             }
 
-            var sql = " INSERT INTO [User] " + " (Username, Password, FirstName, LastName, Phone, Email, Reviewer, Admin) "
-                                             + " VALUES "
-                                             + "(@Username, @Password, @FirstName, @LastName, @Phone, @Email, @Reviewer, @Admin)";
-
+            var sql = "SELECT * FROM [User];";
             var sqlcmd = new SqlCommand(sql, sqlConn);
-            sqlcmd.Parameters.AddWithValue("@Username", user.Username);
-            sqlcmd.Parameters.AddWithValue("@Password", user.Password);
-            sqlcmd.Parameters.AddWithValue("@FirstName", user.FirstName);
-            sqlcmd.Parameters.AddWithValue("@LastName", user.LastName);
-            sqlcmd.Parameters.AddWithValue("@Phone", user.Phone);
-            sqlcmd.Parameters.AddWithValue("@Email", user.Email);
-            sqlcmd.Parameters.AddWithValue("@Reviewer", user.Reviewer);
-            sqlcmd.Parameters.AddWithValue("@Admin", user.Admin);
+            var reader = sqlcmd.ExecuteReader();
+            var users = new List<User>();
 
-            var rowsAffected = sqlcmd.ExecuteNonQuery();
+            while (reader.Read())
+            {
+                var user = new User();
+                user.Id = Convert.ToInt32(reader["Id"]);
+                user.Username = Convert.ToString(reader["Username"]);
+                // user.Password = Convert.ToString(reader["Password"]);
+                user.FirstName = Convert.ToString(reader["FirstName"]);
+                user.LastName = Convert.ToString(reader["LastName"]);
+                user.Phone = Convert.ToString(reader["Phone"]);
+                user.Email = Convert.ToString(reader["Email"]);
+                user.Reviewer = Convert.ToBoolean(reader["Reviewer"]);
+                user.Admin = Convert.ToBoolean(reader["Admin"]);
 
-            return rowsAffected == 1;
+                users.Add(user);
+            }
+            reader.Close(); // Can only have one reader open at a time
+            return users;
         }
 
-        public User UserGetByPK(int Id) // Perfroming get user by ID
+        public User UserGetByPK(int Id) // Get User by Id
         {
             if (sqlConn == null)
             {
@@ -66,38 +71,68 @@ namespace SqlServerLibrary
             return user;
         }
 
-        public List<User> UserGetAll()  // Perfroming a SELECT ALL from the User table
+        public bool UserCreate(User user)   // Add User
         {
-            if(sqlConn == null)
+            if (sqlConn == null)
             {
-                throw new Exception("No Connection");
+                throw new Exception("No connection!");
             }
 
-            var sql = "SELECT * FROM [User];";
+            var sql = " INSERT INTO [User] " + " (Username, Password, FirstName, LastName, Phone, Email, Reviewer, Admin) "
+                                             + " VALUES "
+                                             + "(@Username, @Password, @FirstName, @LastName, @Phone, @Email, @Reviewer, @Admin)";
+
             var sqlcmd = new SqlCommand(sql, sqlConn);
-            var reader = sqlcmd.ExecuteReader();
-            var users = new List<User>();
+            sqlcmd.Parameters.AddWithValue("@Username", user.Username);
+            sqlcmd.Parameters.AddWithValue("@Password", user.Password);
+            sqlcmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+            sqlcmd.Parameters.AddWithValue("@LastName", user.LastName);
+            sqlcmd.Parameters.AddWithValue("@Phone", user.Phone);
+            sqlcmd.Parameters.AddWithValue("@Email", user.Email);
+            sqlcmd.Parameters.AddWithValue("@Reviewer", user.Reviewer);
+            sqlcmd.Parameters.AddWithValue("@Admin", user.Admin);
 
-            while (reader.Read())
-            {
-                var user = new User();
-                user.Id = Convert.ToInt32(reader["Id"]);
-                user.Username = Convert.ToString(reader["Username"]);
-                // user.Password = Convert.ToString(reader["Password"]);
-                user.FirstName = Convert.ToString(reader["FirstName"]);
-                user.LastName = Convert.ToString(reader["LastName"]);
-                user.Phone = Convert.ToString(reader["Phone"]);
-                user.Email = Convert.ToString(reader["Email"]);
-                user.Reviewer = Convert.ToBoolean(reader["Reviewer"]);
-                user.Admin = Convert.ToBoolean(reader["Admin"]);
+            var rowsAffected = sqlcmd.ExecuteNonQuery();
 
-                users.Add(user);
-            }
-            reader.Close(); // Can only have one reader open at a time
-            return users;
+            return rowsAffected == 1;
         }
 
-        public List<Vendor> VendorGetAll()  // Perfroming a SELECT ALL from the Vendor table
+        public bool UserChange(User user)
+        {
+            if (sqlConn == null)
+            {
+                throw new Exception("No connection!");
+            }
+
+            var sql = " UPDATE [User] SET "
+                        + " Username = @Username, "
+                        // + " Password = @Password, "
+                        + " FirstName = @FirstName, "
+                        + " LastName = @LastName, "
+                        + " Phone = @Phone, "
+                        + " Email = @Email, "
+                        + " Reviewer = @Reviewer, "
+                        + " Admin = @Admin "
+                        + " WHERE Id = @Id; ";
+
+            var sqlcmd = new SqlCommand(sql, sqlConn);
+            sqlcmd.Parameters.AddWithValue("@Username", user.Username);
+            //sqlcmd.Parameters.AddWithValue("@Password", user.Password);
+            sqlcmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+            sqlcmd.Parameters.AddWithValue("@LastName", user.LastName);
+            sqlcmd.Parameters.AddWithValue("@Phone", user.Phone);
+            sqlcmd.Parameters.AddWithValue("@Email", user.Email);
+            sqlcmd.Parameters.AddWithValue("@Reviewer", user.Reviewer);
+            sqlcmd.Parameters.AddWithValue("@Admin", user.Admin);
+            sqlcmd.Parameters.AddWithValue("@Id", user.Id);
+
+
+            var rowsAffected = sqlcmd.ExecuteNonQuery();
+
+            return rowsAffected == 1;
+        }// Update User
+
+        public List<Vendor> VendorGetAll()  // Get ALL Vendor
         {
             if (sqlConn == null)
             {
@@ -129,7 +164,7 @@ namespace SqlServerLibrary
             return vendors;
         }
 
-        public Vendor VendorGetByPK(int Id) // Perfroming get Vendor by ID
+        public Vendor VendorGetByPK(int Id) // Get Vendor by ID
         {
             if (sqlConn == null)
             {
@@ -160,6 +195,64 @@ namespace SqlServerLibrary
             reader.Close();
             return vendor;
         }
+
+        public bool VendorCreate(Vendor vendor)   // Add Vendor 
+        {
+            if (sqlConn == null)
+            {
+                throw new Exception("No connection!");
+            }
+
+            var sql = " INSERT INTO Vendor " + " (Code, Name, Address, City, State, Zip, Email, Phone) "
+                                             + " VALUES "
+                                             + "(@Code, @Name, @Address, @City, @State, @Zip, @Email, @Phone)";
+
+            var sqlcmd = new SqlCommand(sql, sqlConn);
+            sqlcmd.Parameters.AddWithValue("@Code", vendor.Code);
+            sqlcmd.Parameters.AddWithValue("@Name", vendor.Name);
+            sqlcmd.Parameters.AddWithValue("@Address", vendor.Address);
+            sqlcmd.Parameters.AddWithValue("@City", vendor.City);
+            sqlcmd.Parameters.AddWithValue("@State", vendor.State);
+            sqlcmd.Parameters.AddWithValue("@Zip", vendor.Zip);
+            sqlcmd.Parameters.AddWithValue("@Email", vendor.Email);
+            sqlcmd.Parameters.AddWithValue("@Phone", vendor.Phone);
+
+            var rowsAffected = sqlcmd.ExecuteNonQuery();
+
+            return rowsAffected == 1;
+        }
+
+        public bool VendorChange(Vendor vendor)
+        {
+            if (sqlConn == null)
+            {
+                throw new Exception("No connection!");
+            }
+
+            var sql = " UPDATE Vendor SET "
+                        + " Name = @Name, "
+                        + " Address = @Address, "
+                        + " City = @City, "
+                        + " State = @State, "
+                        + " Zip = @Zip, "
+                        + " Email = @Email, "
+                        + " Phone = @Phone "
+                        + " WHERE Id = @Id; ";
+
+            var sqlcmd = new SqlCommand(sql, sqlConn);
+            sqlcmd.Parameters.AddWithValue("@Name", vendor.Name);
+            sqlcmd.Parameters.AddWithValue("@Address", vendor.Address);
+            sqlcmd.Parameters.AddWithValue("@City", vendor.City);
+            sqlcmd.Parameters.AddWithValue("@State", vendor.State);
+            sqlcmd.Parameters.AddWithValue("@Zip", vendor.Zip);
+            sqlcmd.Parameters.AddWithValue("@Email", vendor.Email);
+            sqlcmd.Parameters.AddWithValue("@Phone", vendor.Phone);
+            sqlcmd.Parameters.AddWithValue("@Id", vendor.Id);
+
+            var rowsAffected = sqlcmd.ExecuteNonQuery();
+
+            return rowsAffected == 1;
+        }   // Update Vendor
 
         public void Connect(string server, string database)
         {
