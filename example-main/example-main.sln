@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerLib", "SqlServerLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerLibrary", "SqlServerLibrary\SqlServerLibrary.csproj", "{CBF3CF69-201A-443D-A463-C499AD0648CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqExample", "LinqExample\LinqExample.csproj", "{86E52A44-620B-4CC8-AF27-C9541F600E88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{CBF3CF69-201A-443D-A463-C499AD0648CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBF3CF69-201A-443D-A463-C499AD0648CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBF3CF69-201A-443D-A463-C499AD0648CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E52A44-620B-4CC8-AF27-C9541F600E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E52A44-620B-4CC8-AF27-C9541F600E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E52A44-620B-4CC8-AF27-C9541F600E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E52A44-620B-4CC8-AF27-C9541F600E88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
