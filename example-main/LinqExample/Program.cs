@@ -9,14 +9,24 @@ namespace LinqExample
     {
         static void Main(string[] args)
         {
+            var request = new
+            {
+                Id = 1,
+                UserId = 1,
+                Description = "Request 1"
+            };
+
             var sqlLib = new SqlServerLib();
 
             sqlLib.Connect("localhost", "PRS");
-            var users = sqlLib.UserGetAll();
+            var user = sqlLib.UserGetAll();
             sqlLib.Disconnect();
 
             //var sortedUsers = users.OrderBy(u => u.Username).ToList();
-            var sortedUsers = from u in users
+
+            var sortedUsers = from u in user
+                              join r in request
+                              on u.Id equals r.userId
                               orderby u.Username descending
                               select new
                               {
@@ -25,9 +35,10 @@ namespace LinqExample
                               };
 
 
-            foreach (var user in sortedUsers)
+
+            foreach (var users in sortedUsers)
             {
-                Console.WriteLine($"{user.PK} | {user.Login}");
+                Console.WriteLine($"{users.PK} | {users.Login}");
             }
         }
 
