@@ -60,9 +60,9 @@ namespace EntityFrameworkCoreDB_Example.Controllers
             return true;
         }
 
-        public Order Delete(int id) // Delete(s) to Order Table
+        public Order Delete(int Id) // Delete(s) to Order Table
         {
-            var findOrder = _context.Orders.Find(); // Finding Order for Deletion
+            var findOrder = _context.Orders.Find(Id); // Finding Order for Deletion
 
             if (findOrder == null)  // If nothing is passed in parameter, return false to DELETE method
             {
