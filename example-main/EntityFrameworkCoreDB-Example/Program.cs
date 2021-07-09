@@ -22,9 +22,11 @@ namespace EntityFrameworkCoreDB_Example
         static void Main(string[] args)
         {
             Console.WriteLine("Application Start ->");
+
             //TestCustomers();
             //TestOrders();
             //TestOrderLines();
+
             Console.WriteLine("<- Application End");
         }
 
