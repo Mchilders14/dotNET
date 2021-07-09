@@ -25,7 +25,7 @@ namespace BmdbWebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Actor>>> GetActor()
         {
-            return await _context.Actors.ToListAsync();
+            return await _context.Actors.ToListAsync(); // 'await' <- part of async function
         }
 
         // GET: api/Actors/5
