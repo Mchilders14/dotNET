@@ -22,24 +22,24 @@ namespace LinqExample
             var user = sqlLib.UserGetAll();
             sqlLib.Disconnect();
 
-            //var sortedUsers = users.OrderBy(u => u.Username).ToList();
+            var sortedUsers = user.OrderBy(u => u.Username).ToList();
 
-            var sortedUsers = from u in user
-                              join r in request
-                              on u.Id equals r.userId
-                              orderby u.Username descending
-                              select new
-                              {
-                                  PK = u.Id,
-                                  Login = u.Username
-                              };
+            //var sortedUsers = from u in user
+            //                  join r in request
+            //                  on u.Id equals r.userId
+            //                  orderby u.Username descending
+            //                  select new
+            //                  {
+            //                      PK = u.Id,
+            //                      Login = u.Username
+            //                  };
 
 
 
-            foreach (var users in sortedUsers)
-            {
-                Console.WriteLine($"{users.PK} | {users.Login}");
-            }
+            //foreach (var users in sortedUsers)
+            //{
+            //    Console.WriteLine($"{users.PK} | {users.Login}");
+            //}
         }
 
         static void Linq()

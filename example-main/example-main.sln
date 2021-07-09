@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqExample", "LinqExample\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework-Example", "EntityFramework-Example\EntityFramework-Example.csproj", "{2AC6E7B8-1626-4DE6-864D-97C35D50BBDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCoreDB-Example", "EntityFrameworkCoreDB-Example\EntityFrameworkCoreDB-Example.csproj", "{4B782005-9341-4384-BE05-0BA0CF84F541}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{2AC6E7B8-1626-4DE6-864D-97C35D50BBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AC6E7B8-1626-4DE6-864D-97C35D50BBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AC6E7B8-1626-4DE6-864D-97C35D50BBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B782005-9341-4384-BE05-0BA0CF84F541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B782005-9341-4384-BE05-0BA0CF84F541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B782005-9341-4384-BE05-0BA0CF84F541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B782005-9341-4384-BE05-0BA0CF84F541}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,6 +14,6 @@ namespace EntityFramework_Example.Model
         public int Quantity { get; set; }
         public decimal Price { get; set; }
 
-        public virtual Order Orders { get; set; }
+        public virtual Order Orders { get; set; }   // Allows for foreign key with OrdersId
     }
 }
