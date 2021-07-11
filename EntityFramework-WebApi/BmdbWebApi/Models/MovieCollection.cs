@@ -1,7 +1,7 @@
 ﻿using System;
 namespace BmdbWebApi.Models
 {
-    public class MovieCollections
+    public class MovieCollection
     {
         public int Id { get; set; }
         public decimal PurchasePrice { get; set; }
@@ -10,6 +10,6 @@ namespace BmdbWebApi.Models
         public virtual Movie Movie { get; set; }
 
         public int UserID { get; set; }
-        public virtual Users User { get; set; }
+        public virtual User User { get; set; }
     }
 }
