@@ -15,5 +15,8 @@ namespace BmDbWebApi.Data
         }
 
         public DbSet<BmdbWebApi.Models.Actor> Actors { get; set; }
+        public DbSet<BmdbWebApi.Models.Movie> Movies { get; set; }
+        public DbSet<BmdbWebApi.Models.Credit> Credits { get; set; }
+        public DbSet<BmdbWebApi.Models.Users> Users { get; set; }
     }
 }

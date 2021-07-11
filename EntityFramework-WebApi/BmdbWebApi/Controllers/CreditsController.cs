@@ -12,53 +12,47 @@ namespace BmdbWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ActorsController : ControllerBase
+    public class CreditsController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public ActorsController(AppDbContext context)
+        public CreditsController(AppDbContext context)
         {
             _context = context;
         }
 
-        [HttpGet("search/{searchLastName}")] //Custom Method to find Actor by Lastname
-        public async Task<ActionResult<IEnumerable<Actor>>> SearchByLastname(String searchLastname)
-        {
-            return await _context.Actors.Where(a => a.LastName.Contains(searchLastname)).ToListAsync();
-        }
-
-        // GET: api/Actors
+        // GET: api/Credits
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Actor>>> GetActor()
+        public async Task<ActionResult<IEnumerable<Credit>>> GetCredits()
         {
-            return await _context.Actors.ToListAsync(); // 'await' <- part of async function
+            return await _context.Credits.ToListAsync();
         }
 
-        // GET: api/Actors/5
+        // GET: api/Credits/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Actor>> GetActor(int id)
+        public async Task<ActionResult<Credit>> GetCredit(int id)
         {
-            var actor = await _context.Actors.FindAsync(id);
+            var credit = await _context.Credits.Include(i => i.Movie).Include(i => i.Actor).SingleOrDefaultAsync(i => i.Id == id);  // Including the foreign keys in the GET.
 
-            if (actor == null)
+            if (credit == null)
             {
                 return NotFound();
             }
 
-            return actor;
+            return credit;
         }
 
-        // PUT: api/Actors/5
+        // PUT: api/Credits/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutActor(int id, Actor actor)
+        public async Task<IActionResult> PutCredit(int id, Credit credit)
         {
-            if (id != actor.Id)
+            if (id != credit.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(actor).State = EntityState.Modified;
+            _context.Entry(credit).State = EntityState.Modified;
 
             try
             {
@@ -66,7 +60,7 @@ namespace BmdbWebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ActorExists(id))
+                if (!CreditExists(id))
                 {
                     return NotFound();
                 }
@@ -79,36 +73,36 @@ namespace BmdbWebApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Actors
+        // POST: api/Credits
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Actor>> PostActor(Actor actor)
+        public async Task<ActionResult<Credit>> PostCredit(Credit credit)
         {
-            _context.Actors.Add(actor);
+            _context.Credits.Add(credit);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetActor", new { id = actor.Id }, actor);
+            return CreatedAtAction("GetCredit", new { id = credit.Id }, credit);
         }
 
-        // DELETE: api/Actors/5
+        // DELETE: api/Credits/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteActor(int id)
+        public async Task<IActionResult> DeleteCredit(int id)
         {
-            var actor = await _context.Actors.FindAsync(id);
-            if (actor == null)
+            var credit = await _context.Credits.FindAsync(id);
+            if (credit == null)
             {
                 return NotFound();
             }
 
-            _context.Actors.Remove(actor);
+            _context.Credits.Remove(credit);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool ActorExists(int id)
+        private bool CreditExists(int id)
         {
-            return _context.Actors.Any(e => e.Id == id);
+            return _context.Credits.Any(e => e.Id == id);
         }
     }
 }
